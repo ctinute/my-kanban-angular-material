@@ -1,0 +1,28 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <h1>Đăng nhập</h1>
+        </mat-card-title>
+        <mat-card-subtitle class="mat-error" [hidden]="error == null">
+            {{error?.error.error_description}}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field>
+            <input matInput placeholder="Username" type="text" [(ngModel)]="username"/>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="Mật khẩu" type="password" [(ngModel)]="password"/>
+        </mat-form-field>
+        <br>
+        <mat-checkbox color="warn" (checked)="isRemember">Ghi nhớ đăng nhập</mat-checkbox>
+        <br>
+        <div class="tiny">
+            <span>Chưa có tài khoản? <a routerLink="/register">Đăng kí</a></span>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button id="btn_login" mat-raised-button color="primary" (click)="login()">Đăng nhập</button>
+    </mat-card-actions>
+</mat-card>

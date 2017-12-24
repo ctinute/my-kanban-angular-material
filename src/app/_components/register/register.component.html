@@ -1,0 +1,30 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <h1>Đăng kí</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field>
+            <input matInput placeholder="Tên đăng nhập" type="text" [(ngModel)]="username"/>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="Email" type="email" [(ngModel)]="email"/>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="Tên" type="text" [(ngModel)]="name"/>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="Mật khẩu" type="password" [(ngModel)]="password"/>
+        </mat-form-field>
+        <div class="tiny">
+            <span>Đã có tài khoản? <a routerLink="/login">Đăng nhập</a></span>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button id="btn_register" mat-raised-button color="primary" (click)="register()">Đăng kí</button>
+    </mat-card-actions>
+</mat-card>
