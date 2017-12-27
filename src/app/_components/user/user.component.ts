@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import 'rxjs/add/observable/of';
-import {MatSort, MatTableDataSource} from '@angular/material';
+import {MatDialog, MatSort, MatTableDataSource} from '@angular/material';
 import {User} from '../../_models/user';
 import {ProjectWithRole} from '../../_models/projectWithRole';
 import {Team} from '../../_models/team';
@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
 import {AuthService} from '../../_services/auth.service';
 import {UserService} from '../../_services/user.service';
 import {ProjectService} from '../../_services/project.service';
+import {DialogNewProjectComponent} from '../dialog-new-project/dialog-new-project.component';
 
 
 @Component({
@@ -34,7 +35,8 @@ export class UserComponent implements OnInit, AfterViewInit {
     constructor(private _router: Router,
                 private _auth: AuthService,
                 private _userService: UserService,
-                private _projectService: ProjectService) {
+                private _projectService: ProjectService,
+                public dialog: MatDialog) {
     }
 
     ngOnInit(): void {
@@ -59,38 +61,19 @@ export class UserComponent implements OnInit, AfterViewInit {
         }
     }
 
-    /**
-     * Set the sort after the view init since this component will
-     * be able to query its view for the initialized sort.
-     */
     ngAfterViewInit() {
         this.dataSource.sort = this.sort;
-        // this.exampleDatabase = new ExampleHttpDao(this.http);
-        //
-        // // If the user changes the sort order, reset back to the first page.
-        // this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
-        //
-        // Observable.merge(this.sort.sortChange, this.paginator.page)
-        //     .startWith(null)
-        //     .switchMap(() => {
-        //         this.isLoadingResults = true;
-        //         return this.exampleDatabase!.getRepoIssues(
-        //             this.sort.active, this.sort.direction, this.paginator.pageIndex);
-        //     })
-        //     .map(data => {
-        //         // Flip flag to show that loading has finished.
-        //         this.isLoadingResults = false;
-        //         this.isRateLimitReached = false;
-        //         this.resultsLength = data.total_count;
-        //
-        //         return data.items;
-        //     })
-        //     .catch(() => {
-        //         this.isLoadingResults = false;
-        //         // Catch if the GitHub API has reached its rate limit. Return empty data.
-        //         this.isRateLimitReached = true;
-        //         return Observable.of([]);
-        //     })
-        //     .subscribe(data => this.dataSource.data = data);
+    }
+
+    openDialog() {
+        this.dialog.open(DialogNewProjectComponent, {
+            data: {
+                animal: 'panda'
+            }
+        });
+    }
+
+    openProject(id: number) {
+        this._router.navigate(['/project/', id]);
     }
 }

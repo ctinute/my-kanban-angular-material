@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {AuthService} from '../../_services/auth.service';
 import {User} from '../../_models/user';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-register',
@@ -11,13 +12,16 @@ import {User} from '../../_models/user';
     ]
 })
 export class RegisterComponent {
+    hasError = false;
+    error: string;
 
     username: string;
     email: string;
     name: string;
     password: string;
 
-    constructor(private _auth: AuthService) {
+    constructor(private _auth: AuthService,
+                private _route: Router) {
     }
 
     register() {
@@ -32,13 +36,31 @@ export class RegisterComponent {
                 console.log('New user added !');
                 console.log(rUser);
                 // login luon
-                this._auth.login(this.username, this.password, true,
-                    function () {
-                    },
-                    function () {
-                    });
+                this._auth.login(
+                    this.username,
+                    this.password,
+                    true,
+                    data => this.onLoginSuccess(data),
+                    err => this.onLoginError(err));
             },
-            err => console.log(err)
+            err => {
+                console.log(err);
+                this.hasError = true;
+                this.error = err.error.message;
+            }
         );
+    }
+
+    navigateHome() {
+        this._route.navigate(['/']);
+    }
+
+    onLoginSuccess(data) {
+        // console.log('onLoginSuccess');
+        // console.log(data);
+        this.navigateHome();
+    }
+
+    onLoginError(err) {
     }
 }

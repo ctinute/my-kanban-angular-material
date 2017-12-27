@@ -18,7 +18,7 @@ export class AppService {
 
     get(apiEndPoint): Observable<any> {
         let headers = new HttpHeaders();
-        headers = headers.append('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
+        headers = headers.append('Content-type', 'application/json');
         headers = headers.append('Authorization', 'Bearer ' + this._auth.getToken());
         const options = ({headers: headers});
         return this._http.get(SERVER_ADDRESS + apiEndPoint, options);
@@ -26,7 +26,7 @@ export class AppService {
 
     post(apiEndPoint, bodyData): Observable<any> {
         let headers = new HttpHeaders();
-        headers = headers.append('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
+        headers = headers.append('Content-type', 'application/json');
         headers = headers.append('Authorization', 'Bearer ' + this._auth.getToken());
         const options = ({headers: headers});
         return this._http.post(SERVER_ADDRESS + apiEndPoint, bodyData, options);
@@ -34,7 +34,7 @@ export class AppService {
 
     put(apiEndPoint, bodyData): Observable<any> {
         let headers = new HttpHeaders();
-        headers = headers.append('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
+        headers = headers.append('Content-type', 'application/json');
         headers = headers.append('Authorization', 'Bearer ' + this._auth.getToken());
         const options = ({headers: headers});
         return this._http.put(SERVER_ADDRESS + apiEndPoint, bodyData, options);
@@ -42,7 +42,7 @@ export class AppService {
 
     delete(apiEndPoint): Observable<any> {
         let headers = new HttpHeaders();
-        headers = headers.append('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
+        headers = headers.append('Content-type', 'application/json');
         headers = headers.append('Authorization', 'Bearer ' + this._auth.getToken());
         const options = ({headers: headers});
         return this._http.delete(SERVER_ADDRESS + apiEndPoint, options);

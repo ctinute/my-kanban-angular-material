@@ -1,8 +1,11 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title>
-            <h1>Đăng kí</h1>
+            <h1>Đăng nhập</h1>
         </mat-card-title>
+        <mat-card-subtitle class="mat-error" [hidden]="!hasError">
+            {{error}}
+        </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
         <mat-form-field>

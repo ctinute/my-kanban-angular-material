@@ -1,27 +1,9 @@
 import {NgModule} from '@angular/core';
 import {
-    MatButtonModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatDialogModule,
-    MatGridListModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    MatOptionModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatTableModule
+    MatButtonModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatDialogModule, MatGridListModule,
+    MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatOptionModule, MatProgressBarModule,
+    MatProgressSpinnerModule, MatRadioModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule,
+    MatTableModule, MatTabsModule, MatToolbarModule
 } from '@angular/material';
 
 @NgModule({
@@ -37,6 +19,7 @@ import {
         MatSlideToggleModule,
         MatMenuModule,
         MatDialogModule,
+        MatDatepickerModule,
         MatSnackBarModule,
         MatSelectModule,
         MatInputModule,
@@ -47,7 +30,8 @@ import {
         MatProgressSpinnerModule,
         MatTabsModule,
         MatListModule,
-        MatTableModule
+        MatTableModule,
+        MatNativeDateModule
     ],
     exports: [
         MatButtonModule,
@@ -71,7 +55,9 @@ import {
         MatProgressSpinnerModule,
         MatTabsModule,
         MatListModule,
-        MatTableModule
+        MatTableModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ],
 })
 export class AppMaterialModule {

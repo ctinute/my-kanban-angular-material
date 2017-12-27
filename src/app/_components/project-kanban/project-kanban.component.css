@@ -1,0 +1,31 @@
+.grid {
+    white-space: nowrap;
+    overflow: auto;
+    background-color: #f0f0f0;
+    height: calc(100vh - 112px);
+}
+
+mat-card.d-col {
+    background-color: #fafafa;
+    padding: 24px 16px;
+    width: 300px;
+    height: calc(100vh - 112px - 96px);
+    display: inline-block;
+    margin: 0 4px;
+    vertical-align: top;
+}
+
+div.d-col.empty {
+    background-color: #fafafa;
+    padding: 24px 16px;
+    width: 300px;
+    height: calc(100vh - 112px - 96px);
+    display: inline-block;
+    margin: 0 4px;
+    vertical-align: top;
+    border: 1px dashed #e0e0e0;
+}
+
+button#btn_create_column {
+    width: 100%;
+}

@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         // console.log('onLoginSuccess');
         // console.log(data);
         this.navigateHome();
-    };
+    }
 
     onLoginError(err) {
         // console.log('onLoginError');

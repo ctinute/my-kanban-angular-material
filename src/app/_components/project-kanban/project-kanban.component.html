@@ -1,0 +1,19 @@
+<div class="grid">
+
+    <mat-card *ngFor="let col of columns" class="d-col">
+        <mat-card-header>
+            <mat-card-title>{{col.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="card-container">
+                <app-kanban-item *ngFor="let card of col.cards" [card]="card"></app-kanban-item>
+            </div>
+            <button class="btn_create_card" mat-button (click)="createCard(col.id)">New card</button>
+        </mat-card-content>
+    </mat-card>
+
+    <div class="d-col empty">
+        <button id="btn_create_column" mat-button (click)="createColumn()">New column</button>
+    </div>
+
+</div>

@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Cookie} from 'ng2-cookies';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {isNullOrUndefined} from 'util';
@@ -136,8 +135,8 @@ export class AuthService {
 
     register(user: User) {
         let headers = new HttpHeaders();
-        headers = headers.append('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
-        headers = headers.append('Authorization', 'Bearer ' + Cookie.get('access_token'));
+        headers = headers.append('Content-type', 'application/json');
+        headers = headers.append('Authorization', 'Basic ' + btoa(CLIENT_ID + ':' + CLIENT_SECRET));
         const options = ({headers: headers});
         return this._http.post(SERVER_ADDRESS + '/api/users', user, options);
     }

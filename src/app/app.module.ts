@@ -15,12 +15,21 @@ import {RegisterComponent} from './_components/register/register.component';
 import {UserComponent} from './_components/user/user.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {DialogNewProjectComponent} from './_components/dialog-new-project/dialog-new-project.component';
+import {ProjectComponent} from './_components/project/project.component';
+import {ProjectKanbanComponent} from './_components/project-kanban/project-kanban.component';
+import {KanbanItemComponent} from './_components/kanban-item/kanban-item.component';
+import {CardService} from './_services/card.service';
+import {ColumnService} from './_services/column.service';
+import {DialogNewColumnComponent} from './_components/dialog-new-column/dialog-new-column.component';
+import {DialogNewCardComponent} from './_components/dialog-new-card/dialog-new-card.component';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
-    {path: 'user', component: UserComponent}
+    {path: 'user', component: UserComponent},
+    {path: 'project/:id', component: ProjectComponent},
 ];
 
 @NgModule({
@@ -29,7 +38,13 @@ const appRoutes: Routes = [
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        UserComponent
+        UserComponent,
+        DialogNewProjectComponent,
+        ProjectComponent,
+        ProjectKanbanComponent,
+        KanbanItemComponent,
+        DialogNewColumnComponent,
+        DialogNewCardComponent
     ],
     imports: [
         BrowserModule,
@@ -43,7 +58,14 @@ const appRoutes: Routes = [
         AppService,
         AuthService,
         ProjectService,
-        UserService
+        UserService,
+        ColumnService,
+        CardService
+    ],
+    entryComponents: [
+        DialogNewProjectComponent,
+        DialogNewColumnComponent,
+        DialogNewCardComponent
     ],
     bootstrap: [AppComponent]
 })

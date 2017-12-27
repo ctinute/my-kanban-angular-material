@@ -1,0 +1,8 @@
+mat-form-field {
+    width: 100%;
+}
+
+mat-form-field#inp-h, mat-form-field#inp-h#inp_m {
+    width: 100px !important;
+    display: inline-block !important;
+}
