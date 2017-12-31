@@ -26,7 +26,7 @@ export class ColumnService {
     }
 
     updateColumn(column: Column) {
-        return this._appService.put(this.endPoint, column);
+        return this._appService.put(this.endPoint + '/' + column.id, column);
     }
 
     deleteColumnById(id: string) {

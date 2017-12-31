@@ -4,8 +4,8 @@ export class Column {
     id: string;
     name: string;
     description: string;
-    display: number;
-    limit: number;
+    displayOrder: number;
+    cardLimit: number;
 
     projectId: string;
     cards: Card[];

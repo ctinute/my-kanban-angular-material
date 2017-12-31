@@ -10,6 +10,7 @@ import {ColumnService} from '../../_services/column.service';
 })
 export class DialogNewColumnComponent {
     projectId: string;
+    index: number;
     newColumn: Column;
     name: string;
     desc: string;
@@ -19,6 +20,7 @@ export class DialogNewColumnComponent {
                 @Inject(MAT_DIALOG_DATA) public data: any,
                 private _columnService: ColumnService) {
         this.projectId = data.project.id;
+        this.index = data.project.columns.length;
     }
 
     onNoClick(): void {
@@ -33,6 +35,8 @@ export class DialogNewColumnComponent {
         this.newColumn = new Column();
         this.newColumn.name = this.name;
         this.newColumn.description = this.desc;
+        this.newColumn.displayOrder = this.index;
+        this.newColumn.cardLimit = this.index;
         this.newColumn.projectId = this.projectId;
         this._columnService.createColumn(this.newColumn).subscribe(
             data => {

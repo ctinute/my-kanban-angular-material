@@ -12,18 +12,30 @@ import {Card} from '../../_models/card';
 export class KanbanItemComponent {
     @Input() card: Card;
     @Output()
-    movedNext: EventEmitter<Card> = new EventEmitter();
+    movedDown: EventEmitter<number> = new EventEmitter();
     @Output()
-    movedBack: EventEmitter<Card> = new EventEmitter();
+    movedUp: EventEmitter<number> = new EventEmitter();
+    @Output()
+    movedNext: EventEmitter<number> = new EventEmitter();
+    @Output()
+    movedBack: EventEmitter<number> = new EventEmitter();
 
     constructor(public dialog: MatDialog) {
     }
 
+    moveDown() {
+        this.movedDown.emit();
+    }
+
+    moveUp() {
+        this.movedUp.emit();
+    }
+
     moveNext() {
-        this.movedNext.emit(this.card);
+        this.movedNext.emit();
     }
 
     moveBack() {
-        this.movedBack.emit(this.card);
+        this.movedBack.emit();
     }
 }

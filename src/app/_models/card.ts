@@ -2,7 +2,7 @@ export class Card {
     id: string;
     name: string;
     content: string;
-    display: number;
+    displayOrder: number;
     dueTime: Date;
     columnId: string;
 

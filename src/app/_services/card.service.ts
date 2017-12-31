@@ -17,16 +17,16 @@ export class CardService {
         return this._appService.get('/api/columns/' + columnId + '/cards');
     }
 
-    createCard(card: Card) {
+    createCard(card: Card): Observable<Card> {
         return this._appService.post(this.endPoint, card);
     }
 
-    getCardById(id: string) {
+    getCardById(id: string): Observable<Card> {
         return this._appService.get(this.endPoint + '/' + id);
     }
 
-    updateCard(card: Card) {
-        return this._appService.put(this.endPoint, card);
+    updateCard(card: Card): Observable<Card> {
+        return this._appService.put(this.endPoint + '/' + card.id, card);
     }
 
     deleteCardById(id: string) {

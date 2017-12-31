@@ -32,11 +32,9 @@ export class ProjectComponent implements OnInit {
         } else {
             this.sub = this._route.params.subscribe(params => {
                 this.id = +params['id']; // (+) converts string 'id' to a number
-                console.log('ProjectComponent: pid: ' + this.id);
                 this._projectService.getProjectById(this.id)
                     .subscribe(
                         data => {
-                            console.log(data);
                             this.project = data;
                         },
                         error => {
