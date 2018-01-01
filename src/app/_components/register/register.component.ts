@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {AuthService} from '../../_services/auth.service';
 import {User} from '../../_models/user';
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
     selector: 'app-register',
@@ -21,7 +22,8 @@ export class RegisterComponent {
     password: string;
 
     constructor(private _auth: AuthService,
-                private _route: Router) {
+                private _route: Router,
+                public snackBar: MatSnackBar) {
     }
 
     register() {
@@ -33,15 +35,7 @@ export class RegisterComponent {
 
         this._auth.register(user).subscribe(
             rUser => {
-                console.log('New user added !');
-                console.log(rUser);
-                // login luon
-                this._auth.login(
-                    this.username,
-                    this.password,
-                    true,
-                    data => this.onLoginSuccess(data),
-                    err => this.onLoginError(err));
+                this.onRegisterSuccess();
             },
             err => {
                 console.log(err);
@@ -51,16 +45,20 @@ export class RegisterComponent {
         );
     }
 
-    navigateHome() {
-        this._route.navigate(['/']);
+    navigateLogIn() {
+        this._route.navigate(['/login']);
     }
 
-    onLoginSuccess(data) {
-        // console.log('onLoginSuccess');
-        // console.log(data);
-        this.navigateHome();
+    onRegisterSuccess() {
+        this.openSnackBar('Registered! Flease log in to continue !', 'Login');
     }
 
-    onLoginError(err) {
+    openSnackBar(message: string, action: string) {
+        const snackBarRef = this.snackBar.open(message, action, {
+            duration: 10000,
+        });
+        snackBarRef.onAction().subscribe(() => {
+            this.navigateLogIn();
+        });
     }
 }
