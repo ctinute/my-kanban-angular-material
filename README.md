@@ -4,7 +4,7 @@
 ### Requirement
 - Angular CLI
 - NodeJS
-- My [Kanban Webservice]('https://github.com/ctinute/my-kanban-rest-service') 
+- My [Kanban Webservice at https://github.com/ctinute/my-kanban-rest-service]('https://github.com/ctinute/my-kanban-rest-service') 
 
 ### Run
 - `npm install`
