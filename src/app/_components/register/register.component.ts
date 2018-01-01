@@ -16,10 +16,7 @@ export class RegisterComponent {
     hasError = false;
     error: string;
 
-    username: string;
-    email: string;
-    name: string;
-    password: string;
+    user = new User();
 
     constructor(private _auth: AuthService,
                 private _route: Router,
@@ -27,13 +24,7 @@ export class RegisterComponent {
     }
 
     register() {
-        const user = new User();
-        user.username = this.username;
-        user.email = this.email;
-        user.name = this.name;
-        user.password = this.password;
-
-        this._auth.register(user).subscribe(
+        this._auth.register(this.user).subscribe(
             rUser => {
                 this.onRegisterSuccess();
             },

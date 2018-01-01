@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 
 
     navigateHome() {
-        this._route.navigate(['/']);
+        this._route.navigate(['/user']);
     }
 
     onLoginSuccess(data) {

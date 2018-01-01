@@ -16,10 +16,10 @@
 
                 <span class="spacer"></span>
 
-                <a class="nav-link" [hidden]="isAuthenticated" routerLink="/login"> Đăng nhập</a>
-                <a class="nav-link" [hidden]="isAuthenticated" routerLink="/register"> Đăng kí</a>
+                <a class="nav-link" [hidden]="isAuthenticated" routerLink="/login"> Log in</a>
+                <a class="nav-link" [hidden]="isAuthenticated" routerLink="/register"> Sign up</a>
                 <a class="nav-link" [hidden]="!isAuthenticated" routerLink="/user"> {{currentUser?.name}}</a>
-                <a class="nav-link" [hidden]="!isAuthenticated" (click)="logout()"> Đăng xuất</a>
+                <a class="nav-link" [hidden]="!isAuthenticated" (click)="logout()"> Log out</a>
             </mat-toolbar-row>
         </mat-toolbar>
         <div #root="dir" dir="ltr" class="content">

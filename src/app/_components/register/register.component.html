@@ -1,7 +1,7 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title>
-            <h1>Đăng nhập</h1>
+            <h1>Sign up</h1>
         </mat-card-title>
         <mat-card-subtitle class="mat-error" [hidden]="!hasError">
             {{error}}
@@ -9,25 +9,25 @@
     </mat-card-header>
     <mat-card-content>
         <mat-form-field>
-            <input matInput placeholder="Tên đăng nhập" type="text" [(ngModel)]="username"/>
+            <input matInput placeholder="Username" type="text" [(ngModel)]="user.username"/>
         </mat-form-field>
         <br>
         <mat-form-field>
-            <input matInput placeholder="Email" type="email" [(ngModel)]="email"/>
+            <input matInput placeholder="Email" type="email" [(ngModel)]="user.email"/>
         </mat-form-field>
         <br>
         <mat-form-field>
-            <input matInput placeholder="Tên" type="text" [(ngModel)]="name"/>
+            <input matInput placeholder="Full name" type="text" [(ngModel)]="user.name"/>
         </mat-form-field>
         <br>
         <mat-form-field>
-            <input matInput placeholder="Mật khẩu" type="password" [(ngModel)]="password"/>
+            <input matInput placeholder="Password" type="password" [(ngModel)]="user.password"/>
         </mat-form-field>
         <div class="tiny">
-            <span>Đã có tài khoản? <a routerLink="/login">Đăng nhập</a></span>
+            <span>Already have an account? <a routerLink="/login">Log in now</a></span>
         </div>
     </mat-card-content>
     <mat-card-actions>
-        <button id="btn_register" mat-raised-button color="primary" (click)="register()">Đăng kí</button>
+        <button id="btn_register" mat-raised-button color="primary" (click)="register()">Sign up</button>
     </mat-card-actions>
 </mat-card>
