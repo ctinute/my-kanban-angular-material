@@ -23,6 +23,7 @@ import {CardService} from './_services/card.service';
 import {ColumnService} from './_services/column.service';
 import {DialogNewColumnComponent} from './_components/dialog-new-column/dialog-new-column.component';
 import {DialogNewCardComponent} from './_components/dialog-new-card/dialog-new-card.component';
+import {DialogCardDetailComponent} from './_components/dialog-card-detail/dialog-card-detail.component';
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
         ProjectKanbanComponent,
         KanbanItemComponent,
         DialogNewColumnComponent,
-        DialogNewCardComponent
+        DialogNewCardComponent,
+        DialogCardDetailComponent
     ],
     imports: [
         BrowserModule,
@@ -65,7 +67,8 @@ const appRoutes: Routes = [
     entryComponents: [
         DialogNewProjectComponent,
         DialogNewColumnComponent,
-        DialogNewCardComponent
+        DialogNewCardComponent,
+        DialogCardDetailComponent
     ],
     bootstrap: [AppComponent]
 })

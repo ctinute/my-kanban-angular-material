@@ -14,8 +14,7 @@ export class DialogNewCardComponent {
     name: string;
     content: string;
     // labels: Label;
-    dueDay: Date;
-    date: string;
+    date: Date;
     hour: number;
     min: number;
 
@@ -40,8 +39,9 @@ export class DialogNewCardComponent {
         this.newCard = new Card();
         this.newCard.name = this.name;
         this.newCard.content = this.content;
-        const dateParts = this.date.toString().split('/', 3);
-        this.newCard.dueTime = new Date(+dateParts[2], +dateParts[0], +dateParts[1], this.hour % 12 + 1, this.min, 0, this.hour / 12);
+        this.newCard.dueTime = this.date;
+        this.newCard.dueTime.setHours(this.hour);
+        this.newCard.dueTime.setMinutes(this.min);
         this.newCard.columnId = this.columnId;
         this._cardService.createCard(this.newCard).subscribe(
             data => {

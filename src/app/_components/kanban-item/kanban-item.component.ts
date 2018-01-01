@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import 'rxjs/add/observable/of';
 import {MatDialog} from '@angular/material';
 import {Card} from '../../_models/card';
+import {DialogCardDetailComponent} from '../dialog-card-detail/dialog-card-detail.component';
 
 @Component({
     selector: 'app-kanban-item',
@@ -37,5 +38,17 @@ export class KanbanItemComponent {
 
     moveBack() {
         this.movedBack.emit();
+    }
+
+    viewCardDetail() {
+        const dialogRef = this.dialog.open(DialogCardDetailComponent, {
+            data: {
+                card: this.card
+            }
+        });
+
+        // dialogRef.afterClosed().subscribe(result => {
+        //     console.log(result);
+        // });
     }
 }

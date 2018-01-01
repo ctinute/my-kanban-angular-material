@@ -6,7 +6,8 @@
     </mat-form-field>
 
     <mat-form-field>
-        <textarea matInput placeholder="Content" [(ngModel)]="content"></textarea>
+        <textarea matInput matTextareaAutosize matAutosizeMinRows="3"
+                  matAutosizeMaxRows="6" placeholder="Content" [(ngModel)]="content"></textarea>
     </mat-form-field>
 
     <mat-form-field>
